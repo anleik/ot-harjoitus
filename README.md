@@ -6,3 +6,5 @@ Tekstiä **boldattuna** ja *kursivoituna*.
 [gitlog.txt](laskarit/viikko1/gitlog.txt)  
 
 Bonusteksti T17.
+
+Muutos T17.
