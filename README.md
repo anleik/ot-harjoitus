@@ -1,8 +1,6 @@
 # Otsikko
-## Alaotsikko ##
+## Viikko 1
 Tekstiä **boldattuna** ja *kursivoituna*.
 
-##Viikko 1
-
-[komentorivi.txt](laskari/viikko1/komentorivi.txt]
-[gitlog.txt](laskari/viikko1/gitlog.txt]
+[komentorivi.txt](laskarit/viikko1/komentorivi.txt]
+[gitlog.txt](laskarit/viikko1/gitlog.txt]
