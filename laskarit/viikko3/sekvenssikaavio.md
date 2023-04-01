@@ -1,3 +1,4 @@
+```mermaid
 sequenceDiagram
     External ->>+Machine: Machine()
     Machine->>FuelTank: FuelTank()
@@ -21,3 +22,4 @@ sequenceDiagram
     end
     FuelTank ->> FuelTank: fuel_contents = -5
     Engine -->>- Machine: False
+```
