@@ -10,3 +10,6 @@ Pelissä ohjataan hahmoa nuolinäppäimillä.
 
 
 ## Asennus  
+Komentoriville:  
+- poetry install  
+- poetry run invoke start  
