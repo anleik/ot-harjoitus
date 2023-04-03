@@ -1,13 +1,12 @@
-# Otsikko
-## Viikko 1
-Tekstiä **boldattuna** ja *kursivoituna*.
+# Tasohyppelypeli  
+Pelissä ohjataan hahmoa nuolinäppäimillä.  
 
-[komentorivi.txt](laskarit/viikko1/komentorivi.txt)  
-[gitlog.txt](laskarit/viikko1/gitlog.txt) 
- 
-[vaatimusmaarittely.md](dokumentaatio/vaatimusmaarittely.md)  
-[tuntikirjanpito.md](dokumentaatio/tuntikirjanpito.md)
 
-Bonusteksti T17.
 
-Muutos T17.
+## Dokumentaatio  
+[Vaatimusmaarittely](dokumentaatio/vaatimusmaarittely.md)  
+[Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)  
+[Changelog](dokumentaatio/changelog.md)
+
+
+## Asennus  
