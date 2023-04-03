@@ -9,10 +9,8 @@ packages = [{include = "ot_harjoitustyo"}]
 [tool.poetry.dependencies]
 python = "^3.8"
 pytest = "^7.2.2"
-
-
-[tool.poetry.group.dev.dependencies]
 coverage = "^7.2.2"
+
 
 [build-system]
 requires = ["poetry-core"]
