@@ -14,7 +14,7 @@ Sovellus on yksinkertainen tasohyppelypeli, jossa käyttäjä ohjaa hahmoa tason
 
 Mahdollisia lisäominaisuuksia:  
 - Aloitusvalikko.  
-- Pelissä on vihollisia tai esteitä, jotka voivat tappaa käyttäjän hahmon.  
+- Pelissä on vihollisia tai esteitä, jotka voivat tappaa käyttäjän hahmon.      - tehty  
 - Pelissä on enemmän kuin yksi pelattava taso.  
 - Sovellus tallentaa käyttäjän parhaat pisteet tai pisimmän suorituksen pelikertojen yli.  
 - Taistelumekaniikat, käyttäjän hahmo voi iskeä vihollisia.  
