@@ -6,8 +6,8 @@ Sovellus on yksinkertainen tasohyppelypeli, jossa käyttäjä ohjaa hahmoa tason
 
 ## Perustoiminnallisuus
 
-- Käyttäjä pystyy näppäimistöllä liikuttamaan hahmoa ja hyppäämään.  
-- Pelissä on toimiva painovoima, eli hahmo tippuu alas.  
+- Käyttäjä pystyy näppäimistöllä liikuttamaan hahmoa ja hyppäämään.     - tehty  
+- Pelissä on toimiva painovoima, eli hahmo tippuu alas.                 - tehty  
 - Pelissä on maali tai tavoite, jonka saavuttamalla peli etenee tai voitetaan.  
 
 ## Jatkokehitysideoita

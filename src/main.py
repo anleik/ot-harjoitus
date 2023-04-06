@@ -2,156 +2,192 @@ import pygame
 pygame.init()
 
 # Display
-screen_width = 800
-screen_height = 600
-screen = pygame.display.set_mode((screen_width, screen_height), pygame.SRCALPHA)
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+screen = pygame.display.set_mode(
+    (SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
 pygame.display.set_caption('Test game')
 
 # Color
 background_color = (135, 206, 235)
 ground_color = (140, 70, 20)
+platform_color = (200, 70, 50)
 player_color = (255, 0, 0)
 object_color = (135, 170, 235)
 
 
-#Background objects
+# Background objects
 class BackgroundObject:
-    def __init__(self, x=0, y=0, w=0, h=0, p=0, c=(255, 255, 255)):
-        self.rect = pygame.Rect(x, y, w, h)
-        self.p = p #parallax
-        self.c = c
+    def __init__(self, obj_x=0, obj_y=0, obj_w=0, obj_h=0, color=(255, 255, 255), par = 1):
+        self.rect = pygame.Rect(obj_x, obj_y, obj_w, obj_h)
+        self.color = color
+        self.par = par
 
 backgroundobjects = []
 
-test = BackgroundObject(600, 40, 400, 200, 0.3, object_color)
-test2 = BackgroundObject(100, 70, 300, 100, 0.5, object_color)
-test3 = BackgroundObject(1000, 260, 300, 100, 0.9, (135, 135, 255))
-    
-backgroundobjects.append(test)
-backgroundobjects.append(test2)
-backgroundobjects.append(test3)
+bgobj1 = BackgroundObject(600, 40, 400, 200, object_color, 0.3)
+bgobj2 = BackgroundObject(100, 70, 300, 100, object_color, 0.5)
+bgobj3 = BackgroundObject(1000, 260, 300, 100, (135, 135, 255), 0.9)
+
+backgroundobjects.append(bgobj1)
+backgroundobjects.append(bgobj2)
+backgroundobjects.append(bgobj3)
 
 
-background_offset = 0
-parallax_factor = 0.5
+BACKGROUND_OFFSET = 0
+PARALLAX_FACTOR = 0.5
+
+
+#  Player
+player_rect = pygame.Rect(100, 500, 30, 40)
 
 
 
-#  Player and ground objects
-player_rect = pygame.Rect(100, 500, 30, 50)
-ground_rect = pygame.Rect(10, 550, 2000, 40)
+# Ground Objects
+class GroundObject:
+    def __init__(self, grx= 0, gry = 0, grw = 0, grh = 0, color = (255, 255, 255)):
+        self.grx = grx
+        self.gry = gry
+        self.grw = grw
+        self.grh = grh
+        self.rect = pygame.Rect(grx, gry, grw, grh)
+        self.color = color
 
-#Platforms
-platforms = [
-    pygame.Rect(400, 400, 100, 20),
-    pygame.Rect(600, 300, 150, 20),
-    pygame.Rect(850, 200, 100, 20),
-    pygame.Rect(1240, 200, 100, 20),
-]
+groundobjects = []
+
+ground_rect = GroundObject(10, 550, 2000, 40, ground_color)
+ground_rect2 = GroundObject(2210, 550, 1000, 40, ground_color)
+
+groundobjects.append(ground_rect)
+groundobjects.append(ground_rect2)
+
+# Platforms
+class Platform:
+    def __init__(self, plx= 0, ply = 0, plw = 0, plh = 0, color = (255, 255, 255), par = 1):
+        self.plx = plx
+        self.ply = ply
+        self.plw = plw
+        self.plh = plh
+        self.rect = pygame.Rect(plx, ply, plw, plh)
+        self.color = color
+        self.par = par
+
+platforms = []
+plat1 = Platform(400, 400, 100, 20, platform_color)
+plat2 = Platform(600, 300, 150, 20, platform_color, 0.5)
+plat3 = Platform(850, 200, 100, 20, platform_color)
+plat4 = Platform(1240, 200, 100, 20, platform_color)
+
+platforms.append(plat1)
+platforms.append(plat2)
+platforms.append(plat3)
+platforms.append(plat4)
 
 # Camera scroll
-camera_offset = -player_rect.x + screen_width // 2
+camera_offset = -player_rect.x + SCREEN_WIDTH // 2
 
-# Speed and gravity
-player_speed = 5
-gravity = 1.75
-player_velocity_y = 0
-player_velocity_x = 0
-acceleration = 0.5
-deceleration = 0.8
-max_speed = 7
+# Speed and Gravity
+PLAYER_SPEED = 5
+GRAVITY = 1.75
+PLAYER_VELOCITY_Y = 0
+PLAYER_VELOCITY_X = 0
+ACCELERATION = 0.5
+DECELERATION = 0.8
+MAX_SPEED = 7
 
 # Jumping
-is_jumping = False 
-jump_height = 12
+IS_JUMPING = False
+JUMP_HEIGHT = 12
 
-key_up_pressed = False
-jump_key_time = 0
-max_jump_time = 0.5
-jump_counter = 0
-max_jump_counter = 15
+KEY_UP_PRESSED = False
+JUMP_KEY_TIME = 0
+MAX_JUMP_TIME = 0.5
+JUMP_COUNTER = 0
+MAX_JUMP_COUNTER = 15
+
+# Respawn
+def respawncheck():
+    if player_rect.y > 700:
+        player_rect.x = 100
+        player_rect.y = 500
+
 
 clock = pygame.time.Clock()
 
 
-
 # Gameloop
-running = True
-while running:
+RUNNING = True
+while RUNNING:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            RUNNING = False
 
     # Input
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_UP] and not is_jumping:
-        player_velocity_y = -jump_height
-        is_jumping = True
+    if keys[pygame.K_UP] and not IS_JUMPING:
+        PLAYER_VELOCITY_Y = -JUMP_HEIGHT
+        IS_JUMPING = True
     if keys[pygame.K_LEFT]:
-        player_velocity_x -= acceleration
-        player_velocity_x = max(player_velocity_x, -max_speed)
+        PLAYER_VELOCITY_X -= ACCELERATION
+        PLAYER_VELOCITY_X = max(PLAYER_VELOCITY_X, -MAX_SPEED)
     elif keys[pygame.K_RIGHT]:
-        player_velocity_x += acceleration
-        player_velocity_x = min(player_velocity_x, max_speed)
+        PLAYER_VELOCITY_X += ACCELERATION
+        PLAYER_VELOCITY_X = min(PLAYER_VELOCITY_X, MAX_SPEED)
     else:
-        player_velocity_x *= deceleration
-        if abs(player_velocity_x) < 0.1:
-            player_velocity_x = 0
-    
+        PLAYER_VELOCITY_X *= DECELERATION
+        if abs(PLAYER_VELOCITY_X) < 0.1:
+            PLAYER_VELOCITY_X = 0
 
     # Gravity and speed
-    player_velocity_y += gravity
-    player_rect.y += player_velocity_y
-    player_rect.x += player_velocity_x
+    PLAYER_VELOCITY_Y += GRAVITY
+    player_rect.y += PLAYER_VELOCITY_Y
+    player_rect.x += PLAYER_VELOCITY_X
 
-    # Collisions
-    if player_rect.colliderect(ground_rect):
-        player_rect.y = ground_rect.y - player_rect.height
-        is_jumping = False
-        player_velocity_y = 0
-        jump_counter = 0
+    # Ground Collisions
+    if player_rect.collidelist(groundobjects) >= 0:
+        player_rect.y = int(
+            groundobjects[player_rect.collidelist(groundobjects)].gry - player_rect.height)
+        IS_JUMPING = False
+        PLAYER_VELOCITY_Y = 0
+        JUMP_COUNTER = 0
     else:
         # High jump
-        if keys[pygame.K_UP] and is_jumping and jump_counter < max_jump_counter:
-            player_velocity_y = -jump_height
-            jump_counter += 1
+        if keys[pygame.K_UP] and IS_JUMPING and JUMP_COUNTER < MAX_JUMP_COUNTER:
+            PLAYER_VELOCITY_Y = -JUMP_HEIGHT
+            JUMP_COUNTER += 1
         else:
-            is_jumping = True
-            jump_counter = max_jump_counter
+            IS_JUMPING = True
+            JUMP_COUNTER = MAX_JUMP_COUNTER
 
-    # Collisions
-    on_ground_or_platform = player_rect.colliderect(ground_rect)
+    # Platform Collisions
     for platform in platforms:
         if player_rect.colliderect(platform):
-            if player_velocity_y > 0:  # Above collision
-                player_rect.y = platform.y - player_rect.height
-                is_jumping = False
-                player_velocity_y = 0
-                jump_counter = 0
-            elif player_velocity_y < 0:  # Below collision
-                player_rect.y = platform.y + platform.height
-                player_velocity_y = 0
+            if PLAYER_VELOCITY_Y > 0:  # Above collision
+                player_rect.y = platform.ply - player_rect.height
+                IS_JUMPING = False
+                PLAYER_VELOCITY_Y = 0
+                JUMP_COUNTER = 0
+            elif PLAYER_VELOCITY_Y < 0:  # Below collision
+                player_rect.y = platform.ply + platform.plh
+                PLAYER_VELOCITY_Y = 0
 
-    if on_ground_or_platform:
-        is_jumping = False
-        player_velocity_y = 0
-        jump_counter = 0 
+    # Background offset
+    BACKGROUND_OFFSET -= PLAYER_VELOCITY_X
+    camera_offset = -player_rect.x + SCREEN_WIDTH // 2
 
-    
-    
-    #Background offset
-    background_offset -= player_velocity_x
-    camera_offset = -player_rect.x + screen_width // 2
-    
- 
+    # Respawn
+    respawncheck()
+
     # Draw + camera offset
     screen.fill(background_color)
     for obj in backgroundobjects:
-        pygame.draw.rect(screen, obj.c, obj.rect.move((int(background_offset * obj.p)), 0))
-    pygame.draw.rect(screen, ground_color, ground_rect.move(camera_offset, 0))
+        pygame.draw.rect(screen, obj.color, obj.rect.move(
+            (int(BACKGROUND_OFFSET * obj.par)), 0))
+    for obj in groundobjects:
+        pygame.draw.rect(screen, obj.color, obj.rect.move(camera_offset, 0))
     pygame.draw.rect(screen, player_color, player_rect.move(camera_offset, 0))
-    for platform in platforms:
-        pygame.draw.rect(screen, ground_color, platform.move(camera_offset, 0))
+    for obj in platforms:
+        pygame.draw.rect(screen, obj.color, obj.rect.move(int(camera_offset) , 0))
     pygame.display.flip()
 
     clock.tick(60)

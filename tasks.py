@@ -36,3 +36,10 @@ def coverage_report(ctx):
         ctx.run("coverage html")
     else:
         ctx.run("coverage html", pty=True)
+
+@task
+def lint(ctx):
+    if sys.platform == "win32":
+        ctx.run("pylint src")
+    else:
+        ctx.run("pylint src", pty=True)

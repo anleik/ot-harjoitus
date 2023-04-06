@@ -1,6 +1,6 @@
 # Changelog  
 
-## Viikko 3:
+## Viikko 3:  
 
 Peli luotu, lisätty:  
 - Ohjattava hahmo  
@@ -14,4 +14,7 @@ Peli luotu, lisätty:
 Lisätty invoke tasks-tiedosto.  
 Lisätty tests-kansio ja ensimmäinen testi.  
 
+## Viikko 4:  
 
+
+Lisätty kuolema/respawn.  

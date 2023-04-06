@@ -1,5 +1,5 @@
 # Tuntikirjanpito  
-Total = 23 tuntia  
+Total = 28 tuntia  
 
 ## Viikko 2  
 
@@ -12,7 +12,12 @@ Total = 23 tuntia
 2 tuntia	- side-scrolling efekti, hahmon kiihdytys, parempi hyppy ja painovoima  
 2 tuntia	- platforms, collision alhaalta päin, parallax-efekti  
 2 tuntia 	- testin luominen, riippuvuksien asentaminen, taskien luominen  
-3 tuntia 	- linux-asennuksen korjaaminen ja debuggaaminen 
+3 tuntia 	- linux-asennuksen korjaaminen ja debuggaaminen  
 
+## Viikko 4  
 
+2 tuntia    - lint-lisäys ja lint-ongelmien korjaus  
+1 tunti     - logiikan parantelua, luokkien luomista  
+1 tunti     - parannettu ground-olioita ja hyppylogiikkaa  
+1 tunti     - respawn  
 
