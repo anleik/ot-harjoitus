@@ -15,7 +15,7 @@ Komentoriville:
 - poetry run invoke start  
 
 
-## Huom  
+## Huom.    
 Olen poissa 7. - 17.4 joten en pysty edistämään projektia paljon sinä aikana.  
 
 
