@@ -23,16 +23,6 @@ class BackgroundObject:
         self.color = color
         self.par = par
 
-backgroundobjects = []
-
-bgobj1 = BackgroundObject(600, 40, 400, 200, object_color, 0.3)
-bgobj2 = BackgroundObject(100, 70, 300, 100, object_color, 0.5)
-bgobj3 = BackgroundObject(1000, 260, 300, 100, (135, 135, 255), 0.9)
-
-backgroundobjects.append(bgobj1)
-backgroundobjects.append(bgobj2)
-backgroundobjects.append(bgobj3)
-
 
 BACKGROUND_OFFSET = 0
 PARALLAX_FACTOR = 0.5
@@ -53,14 +43,6 @@ class GroundObject:
         self.rect = pygame.Rect(grx, gry, grw, grh)
         self.color = color
 
-groundobjects = []
-
-ground_rect = GroundObject(10, 550, 2000, 40, ground_color)
-ground_rect2 = GroundObject(2210, 550, 1000, 40, ground_color)
-
-groundobjects.append(ground_rect)
-groundobjects.append(ground_rect2)
-
 # Platforms
 class Platform:
     def __init__(self, plx= 0, ply = 0, plw = 0, plh = 0, color = (255, 255, 255), par = 1):
@@ -72,16 +54,15 @@ class Platform:
         self.color = color
         self.par = par
 
-platforms = []
-plat1 = Platform(400, 400, 100, 20, platform_color)
-plat2 = Platform(600, 300, 150, 20, platform_color, 0.5)
-plat3 = Platform(850, 200, 100, 20, platform_color)
-plat4 = Platform(1240, 200, 100, 20, platform_color)
+class Obstacle:
+    def __init__(self, obx = 0, oby = 0, obw = 0, obh = 0, color = (255, 255, 255)):
+        self.obx = obx
+        self.oby = oby
+        self.obw = obw
+        self.obh = obh
+        self.rect = pygame.Rect(obx, oby, obw, obh)
+        self.color = color
 
-platforms.append(plat1)
-platforms.append(plat2)
-platforms.append(plat3)
-platforms.append(plat4)
 
 # Camera scroll
 camera_offset = -player_rect.x + SCREEN_WIDTH // 2
@@ -105,12 +86,55 @@ MAX_JUMP_TIME = 0.5
 JUMP_COUNTER = 0
 MAX_JUMP_COUNTER = 15
 
+groundobjects = []
+backgroundobjects = []
+platforms = []
+obstacles = []
+
+def initialize():
+    global groundobjects, backgroundobjects, platforms, obstacles, player_rect, BACKGROUND_OFFSET
+    groundobjects = []
+    ground_rect = GroundObject(10, 550, 2000, 40, ground_color)
+    ground_rect2 = GroundObject(2210, 550, 1000, 40, ground_color)
+    groundobjects.append(ground_rect)
+    groundobjects.append(ground_rect2)
+
+    backgroundobjects = []
+    bgobj1 = BackgroundObject(600, 40, 400, 200, object_color, 0.3)
+    bgobj2 = BackgroundObject(100, 70, 300, 100, object_color, 0.5)
+    bgobj3 = BackgroundObject(1000, 260, 300, 100, (135, 135, 255), 0.9)
+    backgroundobjects.append(bgobj1)
+    backgroundobjects.append(bgobj2)
+    backgroundobjects.append(bgobj3)
+
+    platforms = []
+    plat1 = Platform(400, 400, 100, 20, platform_color)
+    plat2 = Platform(600, 300, 150, 20, platform_color, 0.5)
+    plat3 = Platform(850, 200, 100, 20, platform_color)
+    plat4 = Platform(1240, 200, 100, 20, platform_color)
+    platforms.append(plat1)
+    platforms.append(plat2)
+    platforms.append(plat3)
+    platforms.append(plat4)
+
+    obstacles = []
+    obstacle1 = Obstacle(540, 360, 60, 150, (0, 0, 0))
+    obstacle2 = Obstacle(775, 250, 50, 50, (0, 0, 0))
+    obstacles.append(obstacle1)
+    obstacles.append(obstacle2)
+
+    player_rect = pygame.Rect(100, 500, 30, 40)
+
+    BACKGROUND_OFFSET = 0
+
+initialize()
+
 # Respawn
 def respawncheck():
-    if player_rect.y > 700:
-        player_rect.x = 100
-        player_rect.y = 500
-
+    if player_rect.y > 900:
+        initialize()
+    if player_rect.collidelist(obstacles) >= 0:
+        initialize()
 
 clock = pygame.time.Clock()
 
@@ -185,9 +209,11 @@ while RUNNING:
             (int(BACKGROUND_OFFSET * obj.par)), 0))
     for obj in groundobjects:
         pygame.draw.rect(screen, obj.color, obj.rect.move(camera_offset, 0))
+    for obj in obstacles:
+        pygame.draw.rect(screen, obj.color, obj.rect.move(camera_offset, 0))
     pygame.draw.rect(screen, player_color, player_rect.move(camera_offset, 0))
     for obj in platforms:
-        pygame.draw.rect(screen, obj.color, obj.rect.move(int(camera_offset) , 0))
+        pygame.draw.rect(screen, obj.color, obj.rect.move(int(camera_offset) ,0))
     pygame.display.flip()
 
     clock.tick(60)

@@ -18,3 +18,4 @@ Lisätty tests-kansio ja ensimmäinen testi.
 
 
 Lisätty kuolema/respawn.  
+Lisätty obstacles.  

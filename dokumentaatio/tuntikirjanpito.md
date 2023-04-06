@@ -1,5 +1,5 @@
 # Tuntikirjanpito  
-Total = 28 tuntia  
+Total = 29 tuntia  
 
 ## Viikko 2  
 
@@ -19,5 +19,5 @@ Total = 28 tuntia
 2 tuntia    - lint-lisäys ja lint-ongelmien korjaus  
 1 tunti     - logiikan parantelua, luokkien luomista  
 1 tunti     - parannettu ground-olioita ja hyppylogiikkaa  
-1 tunti     - respawn  
+2 tuntia    - respawn ja obstacles  
 
