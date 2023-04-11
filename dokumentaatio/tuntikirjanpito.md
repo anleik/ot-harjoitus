@@ -1,5 +1,5 @@
 # Tuntikirjanpito  
-Total = 29 tuntia  
+Total = 31 tuntia  
 
 ## Viikko 2  
 
@@ -20,4 +20,5 @@ Total = 29 tuntia
 1 tunti     - logiikan parantelua, luokkien luomista  
 1 tunti     - parannettu ground-olioita ja hyppylogiikkaa  
 2 tuntia    - respawn ja obstacles  
-
+2 tuntia    - koodilogiikan parantelua, tason kehitystä, etäisyyslaskuri  
+ 

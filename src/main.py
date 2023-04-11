@@ -13,8 +13,19 @@ background_color = (135, 206, 235)
 ground_color = (140, 70, 20)
 platform_color = (200, 70, 50)
 player_color = (255, 0, 0)
-object_color = (135, 170, 235)
+obj_color = (135, 170, 235)
+obj_color2 = (135, 135, 255)
+obstacle_color = (0, 0, 0)
+text_color = (240, 240, 240)
 
+# Text
+font = pygame.font.SysFont("IMPACT", 34)
+DISTANCE = 0
+def draw_texts():
+    distance_text = font.render(f"{round(DISTANCE, 2)}", True, text_color)
+    m_text = font.render("m", True, text_color)
+    screen.blit(distance_text, (690, 10))
+    screen.blit(m_text, (765, 10))
 
 # Background objects
 class BackgroundObject:
@@ -23,19 +34,15 @@ class BackgroundObject:
         self.color = color
         self.par = par
 
-
 BACKGROUND_OFFSET = 0
 PARALLAX_FACTOR = 0.5
-
 
 #  Player
 player_rect = pygame.Rect(100, 500, 30, 40)
 
-
-
 # Ground Objects
 class GroundObject:
-    def __init__(self, grx= 0, gry = 0, grw = 0, grh = 0, color = (255, 255, 255)):
+    def __init__(self, grx= 0, gry = 0, grw = 0, grh = 0, color = ground_color):
         self.grx = grx
         self.gry = gry
         self.grw = grw
@@ -45,7 +52,7 @@ class GroundObject:
 
 # Platforms
 class Platform:
-    def __init__(self, plx= 0, ply = 0, plw = 0, plh = 0, color = (255, 255, 255), par = 1):
+    def __init__(self, plx= 0, ply = 0, plw = 0, plh = 0, color = platform_color, par = 1):
         self.plx = plx
         self.ply = ply
         self.plw = plw
@@ -54,8 +61,9 @@ class Platform:
         self.color = color
         self.par = par
 
+# Obstacles
 class Obstacle:
-    def __init__(self, obx = 0, oby = 0, obw = 0, obh = 0, color = (255, 255, 255)):
+    def __init__(self, obx = 0, oby = 0, obw = 0, obh = 0, color = obstacle_color):
         self.obx = obx
         self.oby = oby
         self.obw = obw
@@ -69,12 +77,12 @@ camera_offset = -player_rect.x + SCREEN_WIDTH // 2
 
 # Speed and Gravity
 PLAYER_SPEED = 5
-GRAVITY = 1.75
+GRAVITY = 1.70
 PLAYER_VELOCITY_Y = 0
 PLAYER_VELOCITY_X = 0
 ACCELERATION = 0.5
 DECELERATION = 0.8
-MAX_SPEED = 7
+MAX_SPEED = 7.5
 
 # Jumping
 IS_JUMPING = False
@@ -92,39 +100,39 @@ platforms = []
 obstacles = []
 
 def initialize():
-    global groundobjects, backgroundobjects, platforms, obstacles, player_rect, BACKGROUND_OFFSET
+    global groundobjects, backgroundobjects, platforms, obstacles, player_rect, DISTANCE, PLAYER_VELOCITY_X, BACKGROUND_OFFSET
     groundobjects = []
-    ground_rect = GroundObject(10, 550, 2000, 40, ground_color)
-    ground_rect2 = GroundObject(2210, 550, 1000, 40, ground_color)
-    groundobjects.append(ground_rect)
-    groundobjects.append(ground_rect2)
+    groundobjects.append(GroundObject(10, 550, 2000, 40, ground_color))
+    groundobjects.append(GroundObject(2210, 550, 1000, 40, ground_color))
+    groundobjects.append(GroundObject(3450, 550, 100, 40, ground_color))
+    groundobjects.append(GroundObject(3790, 550, 100, 40, ground_color))
+    groundobjects.append(GroundObject(4130, 550, 100, 40, ground_color))
+    groundobjects.append(GroundObject(4470, 550, 1500, 40, ground_color))
 
     backgroundobjects = []
-    bgobj1 = BackgroundObject(600, 40, 400, 200, object_color, 0.3)
-    bgobj2 = BackgroundObject(100, 70, 300, 100, object_color, 0.5)
-    bgobj3 = BackgroundObject(1000, 260, 300, 100, (135, 135, 255), 0.9)
-    backgroundobjects.append(bgobj1)
-    backgroundobjects.append(bgobj2)
-    backgroundobjects.append(bgobj3)
+    backgroundobjects.append(BackgroundObject(1000, 260, 300, 100, obj_color2, 0.9))
+    backgroundobjects.append(BackgroundObject(200, 70, 300, 100, obj_color, 0.5))
+    backgroundobjects.append(BackgroundObject(600, 40, 400, 200, obj_color, 0.3))
+    backgroundobjects.append(BackgroundObject(1400, 150, 300, 200, obj_color2, 0.8))
+    backgroundobjects.append(BackgroundObject(1500, 40, 400, 200, obj_color, 0.3))
 
     platforms = []
-    plat1 = Platform(400, 400, 100, 20, platform_color)
-    plat2 = Platform(600, 300, 150, 20, platform_color, 0.5)
-    plat3 = Platform(850, 200, 100, 20, platform_color)
-    plat4 = Platform(1240, 200, 100, 20, platform_color)
-    platforms.append(plat1)
-    platforms.append(plat2)
-    platforms.append(plat3)
-    platforms.append(plat4)
+    platforms.append(Platform(400, 400, 100, 20, platform_color))
+    platforms.append(Platform(600, 300, 150, 20, platform_color, 0.5))
+    platforms.append(Platform(850, 200, 100, 20, platform_color))
+    platforms.append(Platform(1240, 200, 100, 20, platform_color))
+    platforms.append(Platform(1570, 200, 200, 20, platform_color))
+    platforms.append(Platform(2290, 420, 300, 20, platform_color))
 
     obstacles = []
-    obstacle1 = Obstacle(540, 360, 60, 150, (0, 0, 0))
-    obstacle2 = Obstacle(775, 250, 50, 50, (0, 0, 0))
-    obstacles.append(obstacle1)
-    obstacles.append(obstacle2)
+    obstacles.append(Obstacle(540, 360, 60, 150, obstacle_color))
+    obstacles.append(Obstacle(775, 250, 50, 50, obstacle_color))
+    obstacles.append(Obstacle(1000, 250, 100, 600, obstacle_color))
+    obstacles.append(Obstacle(1400, 100, 100, 100))
 
     player_rect = pygame.Rect(100, 500, 30, 40)
-
+    DISTANCE = 0
+    PLAYER_VELOCITY_X = 0
     BACKGROUND_OFFSET = 0
 
 initialize()
@@ -148,6 +156,8 @@ while RUNNING:
 
     # Input
     keys = pygame.key.get_pressed()
+    if keys[pygame.K_ESCAPE]:
+        RUNNING = False
     if keys[pygame.K_UP] and not IS_JUMPING:
         PLAYER_VELOCITY_Y = -JUMP_HEIGHT
         IS_JUMPING = True
@@ -161,6 +171,7 @@ while RUNNING:
         PLAYER_VELOCITY_X *= DECELERATION
         if abs(PLAYER_VELOCITY_X) < 0.1:
             PLAYER_VELOCITY_X = 0
+
 
     # Gravity and speed
     PLAYER_VELOCITY_Y += GRAVITY
@@ -197,6 +208,7 @@ while RUNNING:
 
     # Background offset
     BACKGROUND_OFFSET -= PLAYER_VELOCITY_X
+    DISTANCE += PLAYER_VELOCITY_X / 100
     camera_offset = -player_rect.x + SCREEN_WIDTH // 2
 
     # Respawn
@@ -214,6 +226,9 @@ while RUNNING:
     pygame.draw.rect(screen, player_color, player_rect.move(camera_offset, 0))
     for obj in platforms:
         pygame.draw.rect(screen, obj.color, obj.rect.move(int(camera_offset) ,0))
+
+    draw_texts()
+
     pygame.display.flip()
 
     clock.tick(60)
