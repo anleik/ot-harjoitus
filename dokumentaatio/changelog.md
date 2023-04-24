@@ -21,3 +21,6 @@ Lisätty kuolema/respawn.
 Lisätty obstacles.  
 Lisätty etäisyyslaskuri.  
 
+## Viikko 5:  
+
+Lisätty tallennustoiminnallisuus (ESC-näppäin.)  

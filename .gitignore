@@ -1,5 +1,5 @@
 .pytest_cache
 __pycache
 .coverage
-.coveragerc
 htmlcov
+data.db

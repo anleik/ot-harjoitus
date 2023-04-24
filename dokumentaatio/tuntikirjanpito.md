@@ -1,5 +1,5 @@
 # Tuntikirjanpito  
-Total = 31 tuntia  
+Total = 35 tuntia  
 
 ## Viikko 2  
 
@@ -22,3 +22,7 @@ Total = 31 tuntia
 2 tuntia    - respawn ja obstacles  
 2 tuntia    - koodilogiikan parantelua, tason kehitystä, etäisyyslaskuri  
  
+## Viikko 5  
+
+3 tuntia    - SQLiten lisääminen, tallennus  
+1 tuntia    - github release, pylint korjaus

@@ -16,7 +16,8 @@ Mahdollisia lisäominaisuuksia:
 - Aloitusvalikko.  
 - Pelissä on vihollisia tai esteitä, jotka voivat tappaa käyttäjän hahmon.      - tehty  
 - Pelissä on enemmän kuin yksi pelattava taso.  
-- Sovellus tallentaa käyttäjän parhaat pisteet tai pisimmän suorituksen pelikertojen yli.  
+- Sovellus tallentaa käyttäjän parhaat pisteet tai pisimmän suorituksen pelikertojen yli.  - tehty  
 - Taistelumekaniikat, käyttäjän hahmo voi iskeä vihollisia.  
 - Jatkuva pelimuoto.  
 - Vaihtoehtoinen pelattava hahmo, jolla erilaiset ominaisuudet (nopeus, hyppy, taistelu).  
+

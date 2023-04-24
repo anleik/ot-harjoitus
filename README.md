@@ -1,5 +1,6 @@
 # Tasohyppelypeli  
 Pelissä ohjataan hahmoa nuolinäppäimillä.  
+ESC = Save and Exit  
 
 
 
