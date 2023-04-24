@@ -14,8 +14,3 @@ Komentoriville:
 - poetry install  
 - poetry run invoke start  
 
-
-## Huom.    
-Olen poissa 7. - 17.4 joten en pysty edistämään projektia paljon sinä aikana.  
-
-
