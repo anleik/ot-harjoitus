@@ -1,5 +1,30 @@
-import pygame
+import pygame, sqlite3
 pygame.init()
+
+# SQLite Database
+def sql_database():
+    conn = sqlite3.connect("data.db")
+    conn.execute('''CREATE TABLE IF NOT EXISTS Data
+                (XCOORD            BLOB NOT NULL,
+                YCOORD             BLOB NOT NULL
+                );''')
+def save_progress(xcoord, ycoord):
+    conn = sqlite3.connect("data.db")
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM Data")
+    parameters  = (xcoord, ycoord)
+    cursor.execute("INSERT INTO Data VALUES (?,?)", parameters)
+    conn.commit()
+    conn.close()
+def progress_retrieve():
+    conn = sqlite3.connect("data.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM Data")
+    retrieve_data = cursor.fetchall()
+    conn.close()
+    return retrieve_data
+
+sql_database()
 
 # Display
 SCREEN_WIDTH = 800
@@ -146,6 +171,11 @@ def respawncheck():
 
 clock = pygame.time.Clock()
 
+saved_progress = progress_retrieve()
+print(saved_progress)
+if saved_progress != []:
+    player_rect.x, player_rect.y = saved_progress[0][0], saved_progress[0][1]
+    BACKGROUND_OFFSET -= player_rect.x
 
 # Gameloop
 RUNNING = True
@@ -157,6 +187,7 @@ while RUNNING:
     # Input
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
+        save_progress(player_rect.x, player_rect.y)
         RUNNING = False
     if keys[pygame.K_UP] and not IS_JUMPING:
         PLAYER_VELOCITY_Y = -JUMP_HEIGHT
@@ -208,7 +239,7 @@ while RUNNING:
 
     # Background offset
     BACKGROUND_OFFSET -= PLAYER_VELOCITY_X
-    DISTANCE += PLAYER_VELOCITY_X / 100
+    DISTANCE = (player_rect.x - 100) / 100
     camera_offset = -player_rect.x + SCREEN_WIDTH // 2
 
     # Respawn
