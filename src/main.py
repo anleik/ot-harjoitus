@@ -10,6 +10,7 @@ def sql_database():
                 (XCOORD            BLOB NOT NULL,
                 YCOORD             BLOB NOT NULL
                 );''')
+    conn.close()
 def save_progress(xcoord, ycoord):
     conn = sqlite3.connect("data.db")
     cursor = conn.cursor()
@@ -174,7 +175,6 @@ def respawncheck():
 clock = pygame.time.Clock()
 
 saved_progress = progress_retrieve()
-print(saved_progress)
 if saved_progress != []:
     player_rect.x, player_rect.y = saved_progress[0][0], saved_progress[0][1]
     BACKGROUND_OFFSET -= player_rect.x
