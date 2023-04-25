@@ -7,7 +7,8 @@ ESC = Save and Exit
 ## Dokumentaatio  
 [Vaatimusmaarittely](dokumentaatio/vaatimusmaarittely.md)  
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)  
-[Changelog](dokumentaatio/changelog.md)
+[Changelog](dokumentaatio/changelog.md)  
+[Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)  
 
 
 ## Asennus  

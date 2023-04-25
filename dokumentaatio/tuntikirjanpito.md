@@ -1,5 +1,5 @@
 # Tuntikirjanpito  
-Total = 35 tuntia  
+Total = 36 tuntia  
 
 ## Viikko 2  
 
@@ -25,4 +25,5 @@ Total = 35 tuntia
 ## Viikko 5  
 
 3 tuntia    - SQLiten lisääminen, tallennus  
-1 tuntia    - github release, pylint korjaus
+1 tunti     - github release, pylint korjaus  
+1 tunti     - arkkitehtuuri  
