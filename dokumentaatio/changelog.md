@@ -24,3 +24,7 @@ Lisätty etäisyyslaskuri.
 ## Viikko 5:  
 
 Lisätty tallennustoiminnallisuus (ESC-näppäin.)  
+
+## Viikko 6:  
+
+Lisätty maali.  

@@ -1,5 +1,5 @@
 # Tuntikirjanpito  
-Total = 36 tuntia  
+Total = 55 tuntia  
 
 ## Viikko 2  
 
@@ -27,3 +27,9 @@ Total = 36 tuntia
 3 tuntia    - SQLiten lisääminen, tallennus  
 1 tunti     - github release, pylint korjaus  
 1 tunti     - arkkitehtuuri  
+1 tunti     - sqlite korjauksia linuxille  
+
+## Viikko 6  
+
+16 tuntia   - koodin erottelu/jäsentely eri tiedostoihin (tavoite saada testaus toimimaan käynnistämättä peliä)  
+2 tuntia    - tason kehitys, maalin lisääminen  

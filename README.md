@@ -1,5 +1,6 @@
 # Tasohyppelypeli  
 Pelissä ohjataan hahmoa nuolinäppäimillä.  
+Tavoite on ohjata hahmo maaliin (99m)  
 ESC = Save and Exit  
 
 
@@ -11,8 +12,15 @@ ESC = Save and Exit
 [Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)  
 
 
-## Asennus  
+## Asennus ja käynnistys  
 Komentoriville:  
 - poetry install  
 - poetry run invoke start  
 
+## Komentoja  
+
+Lint:  
+- poetry run invoke lint  
+  
+Testikattavuusraportti:  
+- poetry run invoke coverage-report  
