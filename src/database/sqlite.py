@@ -2,6 +2,9 @@ import sqlite3
 
 # SQLite Database
 def sql_database():
+    """Luo tallentamista varten taulun jos sitä ei vielä ole.
+    """
+
     conn = sqlite3.connect("data.db")
     conn.execute('''CREATE TABLE IF NOT EXISTS Data
                 (XCOORD            BLOB NOT NULL,
@@ -9,6 +12,13 @@ def sql_database():
                 );''')
     conn.close()
 def save_progress(xcoord, ycoord):
+    """Tallentaa pelaajan sijainnin tauluun.
+
+    Args:
+        xcoord (int): Pelaajan x-koordinaatti.
+        ycoord (int): Pelaajan y-koordinaatti.
+    """
+
     conn = sqlite3.connect("data.db")
     cursor = conn.cursor()
     cursor.execute("DELETE FROM Data")
@@ -17,6 +27,12 @@ def save_progress(xcoord, ycoord):
     conn.commit()
     conn.close()
 def progress_retrieve():
+    """Hakee pelaajan tallennetun sijainnin taulusta.
+
+    Returns:
+        X- ja Y-koordinaatit.
+    """
+
     conn = sqlite3.connect("data.db")
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Data")

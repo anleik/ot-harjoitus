@@ -14,8 +14,11 @@ MAX_JUMP_TIME = 0.5
 JUMP_COUNTER = 0
 MAX_JUMP_COUNTER = 15
 
-#Respawn
+
 def respawncheck():
+    """Aloittaa tason alusta, jos pelaaja tippuu ulos näytöltä tai törmää esteeseen.
+    """
+
     if Player.player_rect.y > 900:
         initialize()
     if Player.player_rect.collidelist(Obstacle.obstacles) >= 0:

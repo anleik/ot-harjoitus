@@ -20,16 +20,8 @@ background_color = (135, 206, 235)
 BACKGROUND_OFFSET = 0
 PARALLAX_FACTOR = 0.5
 
-# Camera scroll
+# Camera scroll effect
 camera_offset = -Player.player_rect.x + SCREEN_WIDTH // 2
-
-
-groundobjects = []
-backgroundobjects = []
-platforms = []
-obstacles = []
-goals = []
-
 
 initialize()
 

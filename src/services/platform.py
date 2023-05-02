@@ -1,6 +1,9 @@
 import pygame
 platform_color = (200, 70, 50)
 class Platform:
+    """Tasoja, joiden päällä pelaaja voi seistä.
+    """
+
     platforms = []
     def __init__(self, plx= 0, ply = 0, plw = 0, plh = 0, color = platform_color, par = 1):
         self.plx = plx

@@ -1,6 +1,9 @@
 import pygame
 
 class Player:
+    """Pelaajahahmon ominaisuuksia.
+    """
+
     player_rect = pygame.Rect(100, 500, 30, 40)
     player_color = (255, 0, 0)
     DISTANCE = 0
@@ -14,6 +17,12 @@ class Player:
 
     @staticmethod
     def move(key=str):
+        """Liikuttaa pelaajaa halutun näppäimen mukaan.
+
+        Args:
+            key (str): Painettu näppäin jota voisi simuloida testissä jos osaisin.  
+        """
+
         if key == "up":
             Player.PLAYER_VELOCITY_Y -= Player.JUMP_HEIGHT
         if key == "left":

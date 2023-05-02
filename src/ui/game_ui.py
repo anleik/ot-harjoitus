@@ -4,6 +4,13 @@ from .screen import screen
 
 
 class GameUI:
+    """Piirtää pelin objektit.
+
+    Args:
+        list: lista jossa säilytetään kaikki kyseiset oliot.
+        Player: Pelaajaluokka jota on vain 1.
+        offset: arvo, joka varmistaa että oliot liikkuvat samaan tahtiin kuin pelaaja.
+    """
 
     def draw_bg_objects(list, offset):
         for obj in list:
@@ -24,8 +31,8 @@ class GameUI:
                 if (Player.player_rect.x - obj.obx) > 2000:
                     list.remove(obj)
 
-    def draw_player(Player, camera_offset):
-        pygame.draw.rect(screen, Player.player_color, Player.player_rect.move(camera_offset, 0))
+    def draw_player(Player, offset):
+        pygame.draw.rect(screen, Player.player_color, Player.player_rect.move(offset, 0))
 
     def draw_platforms(Player, list, offset):
         for obj in list:

@@ -1,6 +1,8 @@
 import pygame
 
-# Display
+"""Määritellään pygame ikkuna.
+    """
+
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode(

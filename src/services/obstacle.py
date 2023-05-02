@@ -1,6 +1,9 @@
 import pygame
 obstacle_color = (0, 0, 0)
 class Obstacle:
+    """Esteitä, jotka tappavat pelaajan.
+    """
+
     obstacles = []
     def __init__(self, obx = 0, oby = 0, obw = 0, obh = 0, color = obstacle_color):
         self.obx = obx

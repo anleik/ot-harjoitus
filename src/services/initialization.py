@@ -13,6 +13,9 @@ obj_color2 = (135, 135, 255)
 obstacle_color = (0, 0, 0)
 
 def initialize():
+    """Luo kaikki pelin oliot ja asettaa pelaajan alkupisteeseen.
+    """
+
     GroundObject.groundobjects.clear()
     GroundObject.groundobjects.append(GroundObject(10, 550, 1050, 40, ground_color))
     GroundObject.groundobjects.append(GroundObject(2890, 550, 320, 40, ground_color))
