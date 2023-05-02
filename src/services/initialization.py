@@ -29,8 +29,6 @@ def initialize():
     BackgroundObject.backgroundobjects.append(
         BackgroundObject(1000, 260, 300, 100, obj_color2, 0.9))
     BackgroundObject.backgroundobjects.append(
-        BackgroundObject(200, 70, 300, 80, obj_color, 0.5))
-    BackgroundObject.backgroundobjects.append(
         BackgroundObject(600, 40, 400, 200, obj_color, 0.3))
     BackgroundObject.backgroundobjects.append(
         BackgroundObject(1400, 150, 280, 150, obj_color2, 0.8))

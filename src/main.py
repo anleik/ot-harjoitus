@@ -11,6 +11,7 @@ from services.initialization import initialize
 
 from ui.text import draw_texts
 from ui.screen import screen, SCREEN_WIDTH # ,SCREEN_HEIGHT
+from ui.game_ui import GameUI
 
 pygame.init()
 
@@ -31,13 +32,6 @@ goals = []
 
 
 initialize()
-
-# Respawn
-def respawncheck():
-    if Player.player_rect.y > 900:
-        initialize()
-    if Player.player_rect.collidelist(Obstacle.obstacles) >= 0:
-        initialize()
 
 clock = pygame.time.Clock()
 
@@ -62,11 +56,9 @@ while RUNNING:
         Player.move("up")
         IS_JUMPING = True
     if keys[pygame.K_LEFT]:
-        Player.PLAYER_VELOCITY_X -= Player.ACCELERATION
-        Player.PLAYER_VELOCITY_X = max(Player.PLAYER_VELOCITY_X, -Player.MAX_SPEED)
+        Player.move("left")
     elif keys[pygame.K_RIGHT]:
-        Player.PLAYER_VELOCITY_X += Player.ACCELERATION
-        Player.PLAYER_VELOCITY_X = min(Player.PLAYER_VELOCITY_X, Player.MAX_SPEED)
+        Player.move("right")
     else:
         Player.PLAYER_VELOCITY_X *= Player.DECELERATION
         if abs(Player.PLAYER_VELOCITY_X) < 0.1:
@@ -117,18 +109,12 @@ while RUNNING:
 
     # Draw + camera offset
     screen.fill(background_color)
-    for obj in BackgroundObject.backgroundobjects:
-        pygame.draw.rect(screen, obj.color, obj.rect.move(
-            (int(BACKGROUND_OFFSET * obj.par)), 0))
-    for obj in GroundObject.groundobjects:
-        pygame.draw.rect(screen, obj.color, obj.rect.move(camera_offset, 0))
-    for obj in Obstacle.obstacles:
-        pygame.draw.rect(screen, obj.color, obj.rect.move(camera_offset, 0))
-    pygame.draw.rect(screen, Player.player_color, Player.player_rect.move(camera_offset, 0))
-    for obj in Platform.platforms:
-        pygame.draw.rect(screen, obj.color, obj.rect.move(int(camera_offset) ,0))
-    for obj in Goal.goals:
-        pygame.draw.rect(screen, obj.color, obj.rect.move(camera_offset, 0))
+    GameUI.draw_bg_objects(BackgroundObject.backgroundobjects, BACKGROUND_OFFSET)
+    GameUI.draw_ground_objects(Player, GroundObject.groundobjects, camera_offset)
+    GameUI.draw_obstacles(Player, Obstacle.obstacles, camera_offset)
+    GameUI.draw_player(Player, camera_offset)
+    GameUI.draw_platforms(Player, Platform.platforms, camera_offset)
+    GameUI.draw_goals(Goal.goals, camera_offset)
 
     draw_texts(DISTANCE)
 

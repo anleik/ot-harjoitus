@@ -16,3 +16,9 @@ class Player:
     def move(key=str):
         if key == "up":
             Player.PLAYER_VELOCITY_Y -= Player.JUMP_HEIGHT
+        if key == "left":
+            Player.PLAYER_VELOCITY_X -= Player.ACCELERATION
+            Player.PLAYER_VELOCITY_X = max(Player.PLAYER_VELOCITY_X, -Player.MAX_SPEED)
+        if key == "right":
+            Player.PLAYER_VELOCITY_X += Player.ACCELERATION
+            Player.PLAYER_VELOCITY_X = min(Player.PLAYER_VELOCITY_X, Player.MAX_SPEED)

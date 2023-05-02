@@ -1,5 +1,5 @@
 # Tuntikirjanpito  
-Total = 55 tuntia  
+Total = 58 tuntia  
 
 ## Viikko 2  
 
@@ -33,3 +33,4 @@ Total = 55 tuntia
 
 16 tuntia   - koodin erottelu/jäsentely eri tiedostoihin (tavoite saada testaus toimimaan käynnistämättä peliä)  
 2 tuntia    - tason kehitys, maalin lisääminen  
+3 tuntia    - koodin erottelua ja parantelua  
