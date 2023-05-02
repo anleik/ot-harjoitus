@@ -9,11 +9,11 @@ ESC = Save and Exit
 
 
 ## Dokumentaatio  
+[Käyttöohje](/dokumentaatio/kayttoohje.md)  
 [Vaatimusmaarittely](dokumentaatio/vaatimusmaarittely.md)  
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)  
 [Changelog](dokumentaatio/changelog.md)  
 [Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)  
-
 
 ## Asennus ja käynnistys  
 Komentoriville:  
