@@ -4,6 +4,9 @@ Tavoite on ohjata hahmo maaliin (99m)
 ESC = Save and Exit  
 
 
+## Uusin release  
+[Viikko 6](https://github.com/anleik/ot-harjoitus/releases/tag/viikko6)  
+
 
 ## Dokumentaatio  
 [Vaatimusmaarittely](dokumentaatio/vaatimusmaarittely.md)  
