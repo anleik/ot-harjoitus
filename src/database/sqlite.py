@@ -8,22 +8,24 @@ def sql_database():
     conn = sqlite3.connect("data.db")
     conn.execute('''CREATE TABLE IF NOT EXISTS Data
                 (XCOORD            BLOB NOT NULL,
-                YCOORD             BLOB NOT NULL
+                YCOORD             BLOB NOT NULL,
+                LEVEL              BLOB NOT NULL
                 );''')
     conn.close()
-def save_progress(xcoord, ycoord):
+def save_progress(xcoord, ycoord, level):
     """Tallentaa pelaajan sijainnin tauluun.
 
     Args:
         xcoord (int): Pelaajan x-koordinaatti.
         ycoord (int): Pelaajan y-koordinaatti.
+        level  (int): Taso.
     """
 
     conn = sqlite3.connect("data.db")
     cursor = conn.cursor()
     cursor.execute("DELETE FROM Data")
-    parameters  = (xcoord, ycoord)
-    cursor.execute("INSERT INTO Data VALUES (?,?)", parameters)
+    parameters  = (xcoord, ycoord, level)
+    cursor.execute("INSERT INTO Data VALUES (?,?,?)", parameters)
     conn.commit()
     conn.close()
 def progress_retrieve():

@@ -3,31 +3,30 @@ import pygame
 class Player:
     """Pelaajahahmon ominaisuuksia.
     """
+    def __init__(self):
+        self.player_rect = pygame.Rect(100, 500, 30, 40)
+        self.player_color = (255, 0, 0)
+        self.player_velocity_x = 0
+        self.player_velocity_y = 0
+        self.jump_height = 12
+        self.acceleration = 0.5
+        self.deceleration = 0.8
+        self.max_speed = 7.5
 
-    player_rect = pygame.Rect(100, 500, 30, 40)
-    player_color = (255, 0, 0)
-    DISTANCE = 0
-    PLAYER_VELOCITY_X = 0
-    PLAYER_VELOCITY_Y = 0
-    BACKGROUND_OFFSET = 0
-    JUMP_HEIGHT = 12
-    ACCELERATION = 0.5
-    DECELERATION = 0.8
-    MAX_SPEED = 7.5
 
-    @staticmethod
-    def move(key=str):
+
+    def move(self, key:str):
         """Liikuttaa pelaajaa halutun näppäimen mukaan.
 
         Args:
-            key (str): Painettu näppäin jota voisi simuloida testissä jos osaisin.  
+            key (str): Painettu näppäin.  
         """
 
         if key == "up":
-            Player.PLAYER_VELOCITY_Y -= Player.JUMP_HEIGHT
+            self.player_velocity_y -= self.jump_height
         if key == "left":
-            Player.PLAYER_VELOCITY_X -= Player.ACCELERATION
-            Player.PLAYER_VELOCITY_X = max(Player.PLAYER_VELOCITY_X, -Player.MAX_SPEED)
+            self.player_velocity_x -= self.acceleration
+            self.player_velocity_x = max(self.player_velocity_x, -self.max_speed)
         if key == "right":
-            Player.PLAYER_VELOCITY_X += Player.ACCELERATION
-            Player.PLAYER_VELOCITY_X = min(Player.PLAYER_VELOCITY_X, Player.MAX_SPEED)
+            self.player_velocity_x += self.acceleration
+            self.player_velocity_x = min(self.player_velocity_x, self.max_speed)

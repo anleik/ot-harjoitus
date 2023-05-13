@@ -28,3 +28,9 @@ Lisätty tallennustoiminnallisuus (ESC-näppäin.)
 ## Viikko 6:  
 
 Lisätty maali.  
+
+## Viikko 7:  
+
+Lisätty uusi taso.  
+Parannettu maalia -> vie seuraavaan tasoon.  
+Lisätty valikko / navigaatio tasojen välillä.  

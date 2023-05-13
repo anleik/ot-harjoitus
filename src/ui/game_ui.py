@@ -22,7 +22,7 @@ class GameUI:
             if abs(Player.player_rect.x - obj.grx) < 3000:
                 pygame.draw.rect(screen, obj.color, obj.rect.move(offset, 0))
 
-    
+
 
     def draw_obstacles(Player, list, offset):
         for obj in list:
@@ -45,4 +45,15 @@ class GameUI:
         for obj in list:
             pygame.draw.rect(screen, obj.color, obj.rect.move(offset, 0))
 
-    
+    def draw_buttons(list):
+        for obj in list:
+            pygame.draw.rect(screen, obj.color, obj.rect)
+
+    def fill(screen, level):
+        if level == "level1":
+            color = (135, 206, 235)
+        elif level =="level2":
+            color = (120, 20, 20)
+        else:
+            color = (120, 240, 120)
+        screen.fill(color)

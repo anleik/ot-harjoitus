@@ -1,5 +1,5 @@
 # Tuntikirjanpito  
-Total = 58 tuntia  
+Total = 84 tuntia  
 
 ## Viikko 2  
 
@@ -34,3 +34,11 @@ Total = 58 tuntia
 16 tuntia   - koodin erottelu/jäsentely eri tiedostoihin (tavoite saada testaus toimimaan käynnistämättä peliä)  
 2 tuntia    - tason kehitys, maalin lisääminen  
 3 tuntia    - koodin erottelua ja parantelua  
+1 tunti     - docstring  
+
+## Viikko 7  
+13 tuntia   - koodin erottelu/jäsentely  
+4 tuntia    - eri tasojen luominen / maalin funktionaalisuus    
+3 tuntia    - tasojen parannus / kehitys  
+4 tuntia    - tasovalikko/menu, hiiren klikkaus, painettavat napit  
+1 tunti     - pylint  
