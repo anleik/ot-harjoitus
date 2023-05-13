@@ -2,7 +2,7 @@
  
 ## Sovelluksen tarkoitus
 
-Sovellus on tasohyppelypeli, jossa pelaaja ohjaa hahmoa nuolinäppäimillä tason loppuun. Käyttäjän pitää väistellä vaikeampia ja vaikeampia esteitä.   
+Sovellus on tasohyppelypeli, jossa pelaaja ohjaa hahmoa nuolinäppäimillä tason loppuun. Pelaajan pitää väistellä vaikeampia ja vaikeampia esteitä.   
 
 ## Perustoiminnallisuus
 
@@ -21,4 +21,4 @@ Mahdollisia jatkokehitysominaisuuksia:
 - Taistelumekaniikat, pelaajan hahmo voi iskeä vihollisia.  
 - Jatkuva pelimuoto.  
 - Vaihtoehtoinen pelattava hahmo, jolla erilaiset ominaisuudet (nopeus, hyppy, taistelu).  
-
+- Kello joka mittaa kuinka nopeasti pelaaja voittaa tason + leaderboard.  
