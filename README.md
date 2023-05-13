@@ -14,6 +14,7 @@ ESC = Save and Exit
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)  
 [Changelog](dokumentaatio/changelog.md)  
 [Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)  
+[Testausdokumentti](dokumentaatio/testaus.md)  
 
 ## Asennus ja käynnistys  
 Kirjoita komentoriville:  
