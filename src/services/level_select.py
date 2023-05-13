@@ -6,6 +6,11 @@ from .menu import MenuScreen
 
 
 def level_select(gamestate: GameState):
+    """Asettaa pelin haluttuun tasoon.
+
+    Args:
+        gamestate: Tämänhetkinen taso.
+    """
     if gamestate.level != "":
         if gamestate.level == "level1":
             initialize_level1()

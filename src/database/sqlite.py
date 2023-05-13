@@ -1,6 +1,5 @@
 import sqlite3
 
-# SQLite Database
 def sql_database():
     """Luo tallentamista varten taulun jos sitä ei vielä ole.
     """
@@ -32,7 +31,7 @@ def progress_retrieve():
     """Hakee pelaajan tallennetun sijainnin taulusta.
 
     Returns:
-        X- ja Y-koordinaatit.
+        X- ja Y-koordinaatit, taso.
     """
 
     conn = sqlite3.connect("data.db")

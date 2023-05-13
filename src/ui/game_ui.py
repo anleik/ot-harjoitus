@@ -8,7 +8,7 @@ class GameUI:
 
     Args:
         list: lista jossa säilytetään kaikki kyseiset oliot.
-        Player: Pelaajaluokka jota on vain 1.
+        Player: Pelaajaluokka, käytetään suhteuttamaan piirtokohta näytöllä pelaajaan.
         offset: arvo, joka varmistaa että oliot liikkuvat samaan tahtiin kuin pelaaja.
     """
 

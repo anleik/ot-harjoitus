@@ -2,7 +2,11 @@ import pygame
 from .screen import screen
 
 def draw_texts(distance, level):
-    """Piirtää näytölle pelaajan alusta liikkuman etäisyyden ja tason.
+    """Piirtää näytölle pelin tekstit:
+    pelaajan liikkuma etäisyys,
+    valikon ohjetekstit,
+    tämänhetkinen taso,
+    näppäinohjeet.
 
     Args:
         distance (float): Pelaajan liikkuma etäisyys tasossa.

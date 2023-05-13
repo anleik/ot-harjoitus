@@ -8,6 +8,8 @@ bg_color = (80, 200, 80)
 
 
 class MenuScreen:
+    """Luo valikkonäkymän.
+    """
     def __init__(self):
         self.button = Button()
         self.background_button = Button(0, 0, 800, 600, bg_color)

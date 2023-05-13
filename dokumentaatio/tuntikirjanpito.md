@@ -1,5 +1,5 @@
 # Tuntikirjanpito  
-Total = 87 tuntia  
+Total = 88 tuntia  
 
 ## Viikko 2  
 
@@ -42,5 +42,6 @@ Total = 87 tuntia
 3 tuntia    - tasojen parannus / kehitys  
 4 tuntia    - tasovalikko/menu, hiiren klikkaus, painettavat napit  
 1 tunti     - pylint  
-2 tuntia    - dokumentaation parannus, windows ja linux testaus
-1 tunti     - dokumentaatio / arkkitehtuuri
+2 tuntia    - dokumentaation parannus, windows ja linux testaus  
+1 tunti     - dokumentaatio / arkkitehtuuri  
+1 tunti     - docstring

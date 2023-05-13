@@ -25,11 +25,10 @@ def main():
     """
     pygame.init()
     while game_state.running and DEBUG:
-        # Input
+
         game_state.handle_events()
         game_state.update()
 
-        # Draw + camera offset
 
         GameUI.fill(screen, game_state.level)
         GameUI.draw_bg_objects(BackgroundObject.backgroundobjects, game_state.background_offset)

@@ -13,6 +13,8 @@ from .menu import MenuScreen
 
 MAX_JUMP_COUNTER = 15
 class GameState:
+    """Pitää kirjaa pelin tapahtumista.
+    """
     def __init__(self):
         self.clock = pygame.time.Clock()
         self.player = Player()
@@ -36,6 +38,9 @@ class GameState:
 
     def respawncheck(self, player):
         """Aloittaa tason alusta, jos pelaaja tippuu ulos näytöltä tai törmää esteeseen.
+
+        Args:
+            player: pelaaja
         """
         if player.player_rect.y > 900:
             self.respawn()
@@ -67,6 +72,8 @@ class GameState:
                 self.respawn()
 
     def handle_events(self):
+        """Käsittelee käyttäjän syötteet, hiiren ja kutsuu näppäimistön.
+        """
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
@@ -84,6 +91,8 @@ class GameState:
         self.key_press()
 
     def key_press(self):
+        """Käsittelee näppäimistön syötteet.
+        """
         self.keys = pygame.key.get_pressed()
         if self.keys[pygame.K_ESCAPE]:
             sqlite.save_progress(self.player.player_rect.x, self.player.player_rect.y, self.level)
@@ -105,7 +114,7 @@ class GameState:
                 self.player.player_velocity_x = 0
 
     def collisions(self):
-        """Tarkistaa koskettaako pelaaja maahan.
+        """Tarkistaa koskettaako pelaaja maahan ja samalla hyppyfysiikkaa.
         """
         if self.player.player_rect.collidelist(GroundObject.groundobjects) >= 0:
             self.player.player_rect.y = int(
@@ -134,6 +143,8 @@ class GameState:
                     self.player.player_velocity_y = 0
 
     def update(self):
+        """Päivittää pelin mittareita tapahtumien mukaan.
+        """
         # Gravity and speed
         self.player.player_velocity_y += self.gravity
         self.player.player_rect.y += self.player.player_velocity_y
