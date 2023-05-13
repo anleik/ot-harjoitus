@@ -2,7 +2,7 @@
 
 ## Ohjelman rakenne  
 
-![Rakenne](.kuvat/rakenne.png)
+![Rakenne](/dokumentaatio/kuvat/rakenne.png)
 
 Pakkaus ui vastaa käyttöliittymästä.  
 Pakkaus database vastaa tiedon tallennuksesta.  
