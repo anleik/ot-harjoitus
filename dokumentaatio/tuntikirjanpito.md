@@ -1,5 +1,5 @@
 # Tuntikirjanpito  
-Total = 88 tuntia  
+Total = 90 tuntia  
 
 ## Viikko 2  
 
@@ -44,4 +44,5 @@ Total = 88 tuntia
 1 tunti     - pylint  
 2 tuntia    - dokumentaation parannus, windows ja linux testaus  
 1 tunti     - dokumentaatio / arkkitehtuuri  
-1 tunti     - docstring
+1 tunti     - docstring  
+2 tuntia    - testaus  
