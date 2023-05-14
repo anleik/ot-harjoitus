@@ -14,11 +14,15 @@ def level_select(gamestate: GameState):
     if gamestate.level != "":
         if gamestate.level == "level1":
             initialize_level1()
-        elif gamestate.level == "level2":
+            return
+        if gamestate.level == "level2":
             initialize_level2()
-        elif gamestate.level == "menu":
+            return
+        if gamestate.level == "menu":
             menu = MenuScreen()
             menu.initialize_menu()
-    else:
-        initialize_level1()
-        gamestate.level = "level1"
+            return
+    menu = MenuScreen()
+    menu.initialize_menu()
+    gamestate.level = "menu"
+    return

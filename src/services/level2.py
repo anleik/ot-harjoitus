@@ -11,7 +11,7 @@ obj_color2 = (150, 40, 60)
 obstacle_color = (0, 0, 0)
 
 def initialize_level2():
-    """Luo kaikki pelin oliot.
+    """Luo kaikki tason oliot.
     """
 
     GroundObject.groundobjects.clear()

@@ -145,14 +145,13 @@ class GameState:
     def update(self):
         """Päivittää pelin mittareita tapahtumien mukaan.
         """
-        # Gravity and speed
+
         self.player.player_velocity_y += self.gravity
         self.player.player_rect.y += self.player.player_velocity_y
         self.player.player_rect.x += self.player.player_velocity_x
 
         self.collisions()
 
-        # Background offset
         self.background_offset = -0.8 * self.player.player_rect.x
         self.distance = (self.player.player_rect.x - 100) / 100
         self.camera_offset = -self.player.player_rect.x + SCREEN_WIDTH // 2
