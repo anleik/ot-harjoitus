@@ -1,5 +1,5 @@
 # Tuntikirjanpito  
-Total = 90 tuntia  
+Total = 91 tuntia  
 
 ## Viikko 2  
 
@@ -46,3 +46,4 @@ Total = 90 tuntia
 1 tunti     - dokumentaatio / arkkitehtuuri  
 1 tunti     - docstring  
 2 tuntia    - testaus  
+1 tunti     - loppupalautus, github release, windows/linux-testaus    

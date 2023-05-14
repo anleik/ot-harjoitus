@@ -5,7 +5,7 @@ ESC = Save and Exit
 
 
 ## Uusin release  
-[Viikko 6](https://github.com/anleik/ot-harjoitus/releases/tag/viikko6)  
+[Loppupalautus](https://github.com/anleik/ot-harjoitus/releases/tag/loppupalautus)  
 
 
 ## Dokumentaatio  
